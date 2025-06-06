@@ -1,7 +1,13 @@
-Read ME.
+📦 Iron Codex — Modular Foundry VTT Enhancements (v13+)
 
-If this module has an Installer the read me information is displayed when installing.
+Iron Codex is a lightweight, modular plugin for Foundry VTT (v13+) that replaces and extends key features of the deprecated Monk’s Little Helper module. Each enhancement is self-contained and can be individually enabled via world settings.
 
-If this module is simply a collection of Compendiums the module will need to Enabled in Manage Modules to access the content.
+🛠️ Features include:
+	•	🎯 Remove Target on NPC Turn End — Clears player targets when an NPC finishes their turn
+	•	🌀 Combat Round Messages — Broadcasts concise round updates to all players
+	•	📤 Popout Combat Tracker — Automatically opens the combat tab in a floating window at the start of combat
+	•	🌟 Find My Token — Adds a toolbar button to quickly locate and cycle your owned tokens
+	•	⚠️ Turn Alerts — Displays a warning when it becomes your turn (per-player opt-in)
+	•	🎭 Combat Placeholders — Inserts placeholder combatants for GM tracking or timing tools
 
-If this module is a plug in then its functionality will be add while the module is Enabled in Manage Modules to access the content.
+🔧 Built entirely with Foundry VTT v13’s modern ApplicationV2 and Hooks API — no legacy code.
