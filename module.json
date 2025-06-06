@@ -1,0 +1,84 @@
+{
+  "authors" : [
+    {
+      "discord" : "bill_pitcher",
+      "email" : "bill@ilike.co.nz",
+      "name" : "Bill Pitcher",
+      "url" : "https://www.foundrymodules.com"
+    },
+    {
+      "discord" : "chrispitcher",
+      "name" : "Chris Pitcher",
+      "url" : "https://www.foundrymodules.com"
+    },
+    {
+      "name" : "FoundryModules.com",
+      "url" : "https://www.foundrymodules.com"
+    }
+  ],
+  "bugs" : "https://foundrymodules.com/modules/iron-codex/bugs.txt",
+  "changelog" : "https://foundrymodules.com/modules/iron-codex/changelog.txt",
+  "compatibility" : {
+    "maximum" : "13",
+    "minimum" : "13",
+    "verified" : "13"
+  },
+  "description" : "<blockquote><p>A curated collection of refined combat tools inspired by the teachings of Iron Monk.</p></blockquote>",
+  "download" : "https://foundrymodules.com/modules/iron-codex/iron-codex.zip",
+  "esmodules" : [
+    "scripts/iron-codex.mjs"
+  ],
+  "flags" : {
+    "MM" : "5.4"
+  },
+  "id" : "iron-codex",
+  "license" : "https://foundrymodules.com/license/index.html",
+  "manifest" : "https://foundrymodules.com/modules/iron-codex/module.json",
+  "media" : [
+    {
+      "caption" : "Foundry Modules for Foundry VTT",
+      "loop" : false,
+      "type" : "cover",
+      "url" : "https://www.foundrymodules.com/modules/modulecover.jpg"
+    },
+    {
+      "caption" : "Foundry Modules for Foundry VTT",
+      "loop" : false,
+      "type" : "icon",
+      "url" : "https://www.foundrymodules.com/modules/moduleicon.jpg"
+    },
+    {
+      "caption" : "Foundry Modules for Foundry VTT",
+      "loop" : false,
+      "thumbnail" : "modules/iron-codex/artwork/code_banner.webp",
+      "type" : "setup",
+      "url" : "modules/iron-codex/artwork/code_banner.webp"
+    }
+  ],
+  "readme" : "https://foundrymodules.com/modules/iron-codex/readme.txt",
+  "relationships" : {
+    "dependencies" : [
+      {
+        "id" : "dnd5e",
+        "type" : "system"
+      }
+    ],
+    "systems" : [
+      {
+        "compatibility" : {
+          "minimum" : "5.0.3",
+          "verified" : "5.5.0"
+        },
+        "id" : "dnd5e",
+        "type" : "system"
+      }
+    ]
+  },
+  "styles" : [
+    "styles/fm-fonts.css",
+    "styles/iron-codex.css"
+  ],
+  "title" : "Iron Codex",
+  "url" : "https://foundrymodules.com",
+  "version" : "1.2.0"
+}
