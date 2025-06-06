@@ -1,6 +1,6 @@
 📦 Iron Codex — Modular Foundry VTT Enhancements (v13+)
 
-Iron Codex is a lightweight, modular plugin for Foundry VTT (v13+) that replaces and extends key features of the deprecated Monk’s Little Helper module. Each enhancement is self-contained and can be individually enabled via world settings.
+Iron Codex is a lightweight, modular plugin for Foundry VTT (v13+) that stands in for Monk’s Helper modules while he gets them updated. Each enhancement is self-contained and can be individually enabled via world settings.
 
 🛠️ Features include:
 	•	🎯 Remove Target on NPC Turn End — Clears player targets when an NPC finishes their turn
