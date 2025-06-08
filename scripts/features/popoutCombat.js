@@ -1,7 +1,7 @@
 // features/popoutCombatTracker.js
 
 export function init() {
-    Hooks.on("combatStart", () => {
+    Hooks.on("createCombat", () => {
         const tracker = ui.combat;
         if (!tracker) return;
 

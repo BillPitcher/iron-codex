@@ -2,7 +2,7 @@ const MODULE_ID = 'iron-codex';
 const CLIENT_KEY = "showTurnAlertClient";
 
 export function init() {
-    Hooks.on("combatTurn", (combat, updateData, updateOptions) => {
+    Hooks.on("combatTurnChange", (combat, prior, current) => {
 
         const combatant = combat.combatant;
         if (!combatant?.isOwner) return;
