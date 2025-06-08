@@ -16,15 +16,15 @@
       "url" : "https://www.foundrymodules.com"
     }
   ],
-  "bugs" : "https://foundrymodules.com/modules/iron-codex/bugs.txt",
-  "changelog" : "https://foundrymodules.com/modules/iron-codex/changelog.txt",
+  "bugs" : "https://github.com/BillPitcher/iron-codex/issues",
+  "changelog" : "https://github.com/BillPitcher/iron-codex/changelog.txt",
   "compatibility" : {
     "maximum" : "13",
     "minimum" : "13",
     "verified" : "13"
   },
   "description" : "<blockquote><p>A curated collection of refined combat tools inspired by the teachings of Iron Monk.</p></blockquote>",
-  "download" : "https://foundrymodules.com/modules/iron-codex/iron-codex.zip",
+  "download" : "https://github.com/BillPitcher/iron-codex/archive/1.3.0.zip",
   "esmodules" : [
     "scripts/iron-codex.mjs"
   ],
@@ -33,7 +33,7 @@
   },
   "id" : "iron-codex",
   "license" : "https://foundrymodules.com/license/index.html",
-  "manifest" : "https://foundrymodules.com/modules/iron-codex/module.json",
+  "manifest" : "https://github.com/BillPitcher/iron-codex/releases/latest/download/module.json",
   "media" : [
     {
       "caption" : "Foundry Modules for Foundry VTT",
@@ -55,7 +55,7 @@
       "url" : "modules/iron-codex/artwork/code_banner.webp"
     }
   ],
-  "readme" : "https://foundrymodules.com/modules/iron-codex/readme.txt",
+  "readme" : "https://github.com/BillPitcher/iron-codex/readme.txt",
   "relationships" : {
     "dependencies" : [
       {
@@ -67,7 +67,7 @@
       {
         "compatibility" : {
           "minimum" : "5.0.3",
-          "verified" : "5.5.0"
+          "verified" : "5.0.3"
         },
         "id" : "dnd5e",
         "type" : "system"
@@ -79,6 +79,6 @@
     "styles/iron-codex.css"
   ],
   "title" : "Iron Codex",
-  "url" : "https://foundrymodules.com",
-  "version" : "1.2.0"
+  "url" : "https://github.com/BillPitcher",
+  "version" : "1.3.0"
 }
