@@ -24,7 +24,7 @@
     "verified" : "13"
   },
   "description" : "<blockquote><p>A curated collection of refined combat tools inspired by the teachings of Iron Monk.</p></blockquote>",
-  "download" : "https://github.com/BillPitcher/iron-codex/archive/1.3.0.zip",
+  "download" : "https://github.com/BillPitcher/iron-codex/archive/1.4.0.zip",
   "esmodules" : [
     "scripts/iron-codex.mjs"
   ],
