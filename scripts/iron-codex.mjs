@@ -40,7 +40,19 @@ const FEATURES = {
         name: 'Combat Place Holders',
         hint: 'Adds placeholder entries for events that may effect combat. (Creates a Combat Placeholder actor)',
         file: 'features/combatPlaceholder.js'
+    },
+    'enableCombatTokenVisibility': {
+        name: 'Make Token/Combatant Visible',
+        hint: 'When a Token or Combatant is made visible it effect the other. (only Visible)',
+        file: 'features/combatTokenVisibility.js'
+    },
+    'enableSwapTurnMarker': {
+        name: 'Swap Turn Marker',
+        hint: 'Swap the Combat turn marker.',
+        file: 'features/swapTurnMarker.js'
     }
+
+
 };
 
 Hooks.once('init', () => {
@@ -107,6 +119,7 @@ Hooks.once('init', () => {
             requiresReload: true,
         });
     }
+
     if (game.settings.get(MODULE_ID, GLOBAL_KEY)) {
         game.settings.register(MODULE_ID, CLIENT_KEY, {
             name: 'Turn Alert (Client)',
@@ -123,6 +136,7 @@ Hooks.once('ready', async () => {
     //console.log(`${MODULE_ID} | Ready`);
     //CONFIG.debug.hooks = true;
     //CONFIG.Combat.fallbackTurnMarker = 'modules/iron-codex/tokens/foundrymodules-icon.svg'
+
     for (const [key, data] of Object.entries(FEATURES)) {
         const isEnabled = game.settings.get(MODULE_ID, key);
         if (isEnabled) {
