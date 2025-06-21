@@ -1,3 +1,8 @@
+1.8.0 : 2025-06-21
+No longer Updated each time.
+Reset Turnmarker to coloured version.
+1.7.0 : 2025-06-20
+and add .png
 1.6.0 : 2025-06-20
 Added the Turn Markers
 1.2.0 : 2025-06-06
