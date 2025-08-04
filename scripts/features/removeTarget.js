@@ -13,16 +13,14 @@ export function init() {
         const npcToken = currentCombatant.token?.object;
         if (!npcToken) return;
 
-        // For each user, remove targets on PCs (by ownership or actor type)
-        for (const user of game.users) {
-            for (const target of user.targets) {
-                const targetActor = target?.actor;
-                const isPC = targetActor?.hasPlayerOwner || targetActor?.type === 'character';
+        // For each just GM, remove targets on PCs (by ownership or actor type)
+        for (const target of game.user.targets) {
+            const targetActor = target?.actor;
+            const isPC = targetActor?.hasPlayerOwner || targetActor?.type === 'character';
 
-                if (isPC && npcToken.isOwner) {
-                    target.setTarget(false, { user: game.user });
-                    //console.log(`Iron Codex | Removed target ${target.name} from ${npcToken.name}`);
-                }
+            if ( isPC ) {
+                target.setTarget(false, { user: game.user });
+                //console.log(`Iron Codex | Removed target ${target.name} from ${npcToken.name}`);
             }
         }
     });

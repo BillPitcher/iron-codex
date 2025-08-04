@@ -1,6 +1,7 @@
 // features/combatRound.js
 
 export function init() {
+
     Hooks.on("combatStart", (combat) => {
         if (!game.user.isGM) return;
         let chatContent = {

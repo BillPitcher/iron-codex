@@ -24,12 +24,12 @@
     "verified" : "13"
   },
   "description" : "<blockquote><p>A curated collection of refined combat tools inspired by the teachings of Iron Monk.</p></blockquote>Iron Codex is a modular utility suite for Foundry VTT v13, providing focused, API-compliant features like turn alerts, token finding, combat tracker enhancements, and more—each individually configurable and lightweight for smooth, customizable gameplay.",
-  "download" : "https://github.com/BillPitcher/iron-codex/archive/1.8.0.zip",
+  "download" : "https://github.com/BillPitcher/iron-codex/archive/1.9.0.zip",
   "esmodules" : [
     "scripts/iron-codex.mjs"
   ],
   "flags" : {
-    "MM" : "5.7"
+    "MM" : "5.10"
   },
   "id" : "iron-codex",
   "languages" : [
@@ -86,6 +86,6 @@
     "styles/iron-codex.css"
   ],
   "title" : "Iron Codex",
-  "url" : "https://github.com/BillPitcher",
-  "version" : "1.8.0"
+  "url" : "https://github.com/BillPitcher/",
+  "version" : "1.9.0"
 }
