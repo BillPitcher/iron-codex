@@ -58,6 +58,36 @@ const FEATURES = {
 Hooks.once('init', () => {
     console.log(`${MODULE_ID} | Initializing...`);
 
+    Hooks.on("getSceneControlButtons", (controls) => {
+        if (!game.settings.get(MODULE_ID, SETTING_KEY)) return;
+
+        const tokenControls = controls["tokens"]; // "tokens", not "token"
+        if (!tokenControls) return;
+        tokenControls.tools["findToken"] = {
+            name: "findToken",
+            title: "Find Token",
+            icon: "fa-solid fa-crosshairs",
+            order: 99,
+            visible: true,
+            button: true,
+            onChange: (event, active) => {
+                findNextToken()
+            }
+        };
+    });
+
+    if (game.settings.get(MODULE_ID, GLOBAL_KEY)) {
+        game.settings.register(MODULE_ID, CLIENT_KEY, {
+            name: 'Turn Alert (Client)',
+            hint: 'Show a warning when it becomes your turn in combat.',
+            scope: 'client',
+            config: true,
+            type: Boolean,
+            default: false
+        });
+    }
+    if ( !game.user.isGM ) { return }
+
     Hooks.on("renderApplicationV2", (app, element, context, options) => {
         // Ensure we're targeting the Combat Tracker
         if (app !== ui.combat) return;
@@ -89,24 +119,6 @@ Hooks.once('init', () => {
         footer.appendChild(button);
     });
 
-    Hooks.on("getSceneControlButtons", (controls) => {
-        if (!game.settings.get(MODULE_ID, SETTING_KEY)) return;
-
-        const tokenControls = controls["tokens"]; // "tokens", not "token"
-        if (!tokenControls) return;
-        tokenControls.tools["findToken"] = {
-            name: "findToken",
-            title: "Find Token",
-            icon: "fa-solid fa-crosshairs",
-            order: 99,
-            visible: true,
-            button: true,
-            onChange: (event, active) => {
-               findNextToken()
-            }
-        };
-    });
-
     for (const [key, data] of Object.entries(FEATURES)) {
         game.settings.register(MODULE_ID, key, {
             name: data.name,
@@ -120,37 +132,28 @@ Hooks.once('init', () => {
         });
     }
 
-    if (game.settings.get(MODULE_ID, GLOBAL_KEY)) {
-        game.settings.register(MODULE_ID, CLIENT_KEY, {
-            name: 'Turn Alert (Client)',
-            hint: 'Show a warning when it becomes your turn in combat.',
-            scope: 'client',
-            config: true,
-            type: Boolean,
-            default: false
-        });
-    }
-});
+    Hooks.once('ready', async () => {
+        //console.log(`${MODULE_ID} | Ready`);
+        //CONFIG.debug.hooks = true;
+        //CONFIG.Combat.fallbackTurnMarker = 'modules/iron-codex/tokens/foundrymodules-icon.svg'
 
-Hooks.once('ready', async () => {
-    //console.log(`${MODULE_ID} | Ready`);
-    //CONFIG.debug.hooks = true;
-    //CONFIG.Combat.fallbackTurnMarker = 'modules/iron-codex/tokens/foundrymodules-icon.svg'
-
-    for (const [key, data] of Object.entries(FEATURES)) {
-        const isEnabled = game.settings.get(MODULE_ID, key);
-        if (isEnabled) {
-            try {
-                const featureModule = await import(`./${data.file}`);
-                if (featureModule.init) {
-                    featureModule.init();
-                    //console.log(`${MODULE_ID} | Initialized ${key}`);
-                } else {
-                    console.warn(`${MODULE_ID} | Feature file for ${key} does not export an init function.`);
+        for (const [key, data] of Object.entries(FEATURES)) {
+            const isEnabled = game.settings.get(MODULE_ID, key);
+            if (isEnabled) {
+                try {
+                    const featureModule = await import(`./${data.file}`);
+                    if (featureModule.init) {
+                        featureModule.init();
+                        //console.log(`${MODULE_ID} | Initialized ${key}`);
+                    } else {
+                        console.warn(`${MODULE_ID} | Feature file for ${key} does not export an init function.`);
+                    }
+                } catch (err) {
+                    console.error(`${MODULE_ID} | Failed to load feature ${key}`, err);
                 }
-            } catch (err) {
-                console.error(`${MODULE_ID} | Failed to load feature ${key}`, err);
             }
         }
-    }
+    });
+
 });
+
