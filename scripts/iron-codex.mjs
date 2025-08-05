@@ -1,4 +1,5 @@
 // iron-codex.mjs
+// v2.0.0
 import { findNextToken } from "./features/showFindToken.js";
 import { addCombatPlaceholder } from "./features/combatPlaceholder.js";
 

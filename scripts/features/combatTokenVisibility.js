@@ -1,3 +1,4 @@
+// v2.0.0
 export function init() {
     if (game.user.isGM) {
         Hooks.on("updateCombatant" , async (

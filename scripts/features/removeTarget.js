@@ -1,5 +1,5 @@
 // features/removeTarget.js
-
+// v2.0.0
 export function init() {
     Hooks.on("combatTurnChange", (combat, prior, current) => {
         if (!game.user.isGM) return;

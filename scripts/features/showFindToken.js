@@ -1,5 +1,5 @@
 // features/findToken.js
-
+// v2.0.0
 const LAST_INDEX = {};
 export function init() {
     //console.debug("iron-codex | combatPlaceholder init() called");
