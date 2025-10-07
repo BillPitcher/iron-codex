@@ -3,7 +3,7 @@
 export function init() {
 
     Hooks.on("combatStart", () => {
-        if (!game.user.isGM) return;
+        if (!game.user.isActiveGM) return;
         let chatContent = {
             img: "<i class=\"fa-solid fa-hand-fist\"></i>",
             title: "Combat begins",
@@ -14,7 +14,7 @@ export function init() {
     });
 
     Hooks.on("combatRound", (combat, updateData) => {
-        if (!game.user.isGM) return;
+        if (!game.user.isActiveGM) return;
 
         const round = updateData.round;
         if (round && round > 1) {
@@ -28,9 +28,10 @@ export function init() {
         }
     });
 
-    Hooks.on("deleteCombat", () => {
-        if (!game.user.isGM) return;
-
+    Hooks.on("deleteCombat", async (document) => {
+        if (!game.user.isActiveGM) return;
+        const current = document.combatant;
+        const token = current?.token?.object;
         let chatContent = {
             img: "<i class=\"fa-solid fa-flag-checkered\"></i>",
             title: `Combat Ends`,
@@ -38,11 +39,15 @@ export function init() {
             content: ``
         }
         postCombatMessage(chatContent);
+
+        if (token) {
+            await token.draw();
+        }
     });
 }
 
 function postCombatMessage(content) {
-    ChatMessage.implementation.create({content: formatMessage(content)}).then();
+    ChatMessage.implementation.create({content: formatMessage(content), user: game.user.isActiveGM.id}).then();
 }
 
 function formatMessage(chatData) {
