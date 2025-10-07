@@ -1,5 +1,5 @@
 // features/findToken.js
-// v2.0.0
+// v2.0.1
 const LAST_INDEX = {};
 export function init() {
     //console.debug("iron-codex | combatPlaceholder init() called");
@@ -28,7 +28,7 @@ export async function findNextToken() {
     const token = tokens[index];
     await token.control({ releaseOthers: true });
 
-    canvas.animatePan({ x: token.center.x, y: token.center.y, scale: 1.0 });
+    await canvas.animatePan({x: token.center.x, y: token.center.y, scale: 1.0});
 
     //console.log(`🔍 Centered on token: ${token.name}`);
 }

@@ -1,8 +1,8 @@
 // features/combatRound.js
-// v2.0.0
+// v2.0.1
 export function init() {
 
-    Hooks.on("combatStart", (combat) => {
+    Hooks.on("combatStart", () => {
         if (!game.user.isGM) return;
         let chatContent = {
             img: "<i class=\"fa-solid fa-hand-fist\"></i>",
@@ -13,7 +13,7 @@ export function init() {
         postCombatMessage(chatContent);
     });
 
-    Hooks.on("combatRound", (combat, updateData, updateOptions) => {
+    Hooks.on("combatRound", (combat, updateData) => {
         if (!game.user.isGM) return;
 
         const round = updateData.round;
@@ -27,14 +27,26 @@ export function init() {
             postCombatMessage(chatContent);
         }
     });
+
+    Hooks.on("deleteCombat", () => {
+        if (!game.user.isGM) return;
+
+        let chatContent = {
+            img: "<i class=\"fa-solid fa-flag-checkered\"></i>",
+            title: `Combat Ends`,
+            subtitle: ``,
+            content: ``
+        }
+        postCombatMessage(chatContent);
+    });
 }
 
 function postCombatMessage(content) {
-    ChatMessage.implementation.create({content: formatMessage(content)});
+    ChatMessage.implementation.create({content: formatMessage(content)}).then();
 }
 
 function formatMessage(chatData) {
-    let messageContent = `<div class="message-content">
+    return `<div class="message-content">
         <div class="dnd5e2 chat-card activation-card" data-display-challenge="">
         <section class="card-header description">
             <header class="summary">
@@ -50,5 +62,5 @@ function formatMessage(chatData) {
         </section>
         </div>
     </div>`
-    return messageContent;
+
 }

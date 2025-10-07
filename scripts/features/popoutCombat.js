@@ -1,5 +1,5 @@
 // features/popoutCombatTracker.js
-// v2.0.0
+// v2.0.1
 export function init() {
     Hooks.on("createCombat", () => {
         const tracker = ui.combat;

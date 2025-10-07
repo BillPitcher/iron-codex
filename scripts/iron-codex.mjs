@@ -1,5 +1,5 @@
 // iron-codex.mjs
-// v2.0.0
+// v2.0.1
 import { findNextToken } from "./features/showFindToken.js";
 import { addCombatPlaceholder } from "./features/combatPlaceholder.js";
 
@@ -10,6 +10,9 @@ const CLIENT_KEY = "showTurnAlertClient";
 /**
  * Features to toggle in the settings.
  * Each key maps to a feature file, which should export an `init` function.
+ */
+/**
+ * @typedef {ClientSettings} game.settings
  */
 const FEATURES = {
     'enableFindToken': {
@@ -103,14 +106,14 @@ Hooks.once('init', () => {
             order: 99,
             visible: true,
             button: true,
-            onChange: (event, active) => {
-                findNextToken()
+            onChange: async () => {
+                await findNextToken()
             }
         };
     });
 
 
-    Hooks.on("renderApplicationV2", (app, element, context, options) => {
+    Hooks.on("renderApplicationV2",  (app, element)  => {
         // Ensure we're targeting the Combat Tracker
         if (app !== ui.combat) return;
 
@@ -132,9 +135,9 @@ Hooks.once('init', () => {
         button.innerHTML = `<i class="fa-solid fa-mask"></i>Add Placeholder`;
 
         // Add click event listener
-        button.addEventListener("click", () => {
+        button.addEventListener("click", async () => {
             //console.debug("iron-codex | Placeholder button clicked");
-            addCombatPlaceholder()
+            await addCombatPlaceholder()
         });
 
         // Append the button to the footer

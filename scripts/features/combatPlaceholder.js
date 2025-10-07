@@ -1,5 +1,5 @@
 // features/combatPlaceholder.js
-// v2.0.0
+// v2.0.1
 export function init() {
     //console.debug("iron-codex | combatPlaceholder init() called");
 }

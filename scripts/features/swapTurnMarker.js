@@ -1,4 +1,4 @@
-// v2.0.0
+// v2.0.1
 const MODULE_ID = 'iron-codex';
 const CLIENT_KEY = "enableSwapTurnMarker";
 
