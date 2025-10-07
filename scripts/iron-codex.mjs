@@ -68,7 +68,7 @@ const FEATURES = {
 };
 
 Hooks.once('init', () => {
-    console.log(`${MODULE_ID} | Initializing...`);
+
 
     for (const [key, data] of Object.entries(FEATURES)) {
         game.settings.register(MODULE_ID, key, {
@@ -147,7 +147,7 @@ Hooks.once('init', () => {
 
 
     Hooks.once('ready', async () => {
-        //console.log(`${MODULE_ID} | Ready`);
+        console.log(`✅ ${MODULE_ID} | Ready`);
         //CONFIG.debug.hooks = true;
         //CONFIG.Combat.fallbackTurnMarker = 'modules/iron-codex/tokens/foundrymodules-icon.svg'
 
@@ -156,10 +156,10 @@ Hooks.once('init', () => {
             if (isEnabled) {
                 try {
                     const featureModule = await import(`./${data.file}`);
-                    if (!game.user.isGM && data.gmOnly) { continue; }
+                    if (!game.user.isActiveGM && data.gmOnly) { continue; }
                     if (featureModule.init) {
                         featureModule.init();
-                        console.log(`${MODULE_ID} | Initialized ${key}`);
+                        //console.log(`${MODULE_ID} | Initialized ${key}`);
                     } else {
                         console.warn(`${MODULE_ID} | Feature file for ${key} does not export an init function.`);
                     }
