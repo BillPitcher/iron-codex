@@ -7,6 +7,8 @@ const MODULE_ID = 'iron-codex';
 const SETTING_KEY = "enableFindToken";
 const GLOBAL_KEY = "enableShowYourTurn";
 const CLIENT_KEY = "showTurnAlertClient";
+const PLACEHOLDER_KEY = "enableCombatPlaceholders";
+
 /**
  * Features to toggle in the settings.
  * Each key maps to a feature file, which should export an `init` function.
@@ -114,8 +116,12 @@ Hooks.once('init', () => {
 
 
     Hooks.on("renderApplicationV2",  (app, element)  => {
+        if (!game.user.isActiveGM) return;
+        // check if button should be enabled from settings!
+        if (!game.settings.get(MODULE_ID, PLACEHOLDER_KEY)) return;
         // Ensure we're targeting the Combat Tracker
         if (app !== ui.combat) return;
+
 
         // Check if the footer exists; if not, create it
         let footer = element.querySelector(".directory-footer");
@@ -127,6 +133,7 @@ Hooks.once('init', () => {
 
         // Avoid adding the button multiple times
         if (footer.querySelector(".combat-placeholder-button")) return;
+
 
         // Create the button
         const button = document.createElement("button");

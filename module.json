@@ -21,7 +21,7 @@
   "compatibility" : {
     "maximum" : "14",
     "minimum" : "13",
-    "verified" : "13"
+    "verified" : "14"
   },
   "description" : "<blockquote><p>A curated collection of refined combat tools inspired by the teachings of Iron Monk.</p></blockquote>Iron Codex is a modular utility suite for Foundry VTT v13, providing focused, API-compliant features like turn alerts, token finding, combat tracker enhancements, and more—each individually configurable and lightweight for smooth, customizable gameplay.",
   "download" : "https://github.com/BillPitcher/iron-codex/archive/2.1.0.zip",
@@ -74,7 +74,7 @@
       {
         "compatibility" : {
           "minimum" : "5.0.3",
-          "verified" : "5.0.3"
+          "verified" : "5.3.0"
         },
         "id" : "dnd5e",
         "type" : "system"
@@ -87,5 +87,5 @@
   ],
   "title" : "Iron Codex",
   "url" : "https://github.com/BillPitcher/",
-  "version" : "2.3.1"
+  "version" : "2.4.0"
 }
