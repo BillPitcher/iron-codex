@@ -19,7 +19,7 @@
   "bugs" : "https://github.com/BillPitcher/iron-codex/issues",
   "changelog" : "https://github.com/BillPitcher/iron-codex/changelog.txt",
   "compatibility" : {
-    "maximum" : "13",
+    "maximum" : "14",
     "minimum" : "13",
     "verified" : "13"
   },
@@ -87,5 +87,5 @@
   ],
   "title" : "Iron Codex",
   "url" : "https://github.com/BillPitcher/",
-  "version" : "2.3.0"
+  "version" : "2.3.1"
 }
