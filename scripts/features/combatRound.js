@@ -30,14 +30,17 @@ export function init() {
 
     Hooks.on("deleteCombat", async (document) => {
         if (!game.user.isActiveGM) return;
+
         const current = document.combatant;
         const token = current?.token?.object;
+
         let chatContent = {
             img: "<i class=\"fa-solid fa-flag-checkered\"></i>",
-            title: `Combat Ends`,
+            title: `Combat Ends (Round ${document.round ?? 0})`,
             subtitle: ``,
             content: ``
-        }
+        };
+
         postCombatMessage(chatContent);
 
         if (token) {
